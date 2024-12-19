@@ -14,22 +14,22 @@ A real-time cryptocurrency price monitoring system built with Python. This proje
 
 ## Project Structure
 
-project/
-│
-├── config/
-│   └── config.yaml       # Configuration settings
-│
-├── logs/
-│   └── app.log          # Application logs
-│
-├── src/
-│   ├── __init__.py
-│   ├── main.py          # Main entry point
-│   ├── config.py        # Configuration management
-│   ├── data.py          # Data fetching
-│   └── processor.py     # Data processing
-│
-└── README.md
+project/\n
+│\n
+├── config/\n
+│   └── config.yaml       # Configuration settings\n
+│\n
+├── logs/\n
+│   └── app.log          # Application logs\n
+│\n
+├── src/\n
+│   ├── __init__.py\n
+│   ├── main.py          # Main entry point\n
+│   ├── config.py        # Configuration management\n
+│   ├── data.py          # Data fetching\n
+│   └── processor.py     # Data processing\n
+│\n
+└── README.md\n
 
 
 ## Requirements
