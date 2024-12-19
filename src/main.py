@@ -23,25 +23,15 @@ def signal_handler(signum, frame):
     sys.exit(0)
 
 def main():
-    # Load configuration
     config = load_config()
-    
-    # Setup logging
     setup_logging(config)
     logging.info("Starting Crypto Price Monitor...")
-    
-    # Setup graceful shutdown
     signal.signal(signal.SIGINT, signal_handler)
     
     try:
-        # Initialize components
         data_fetcher = DataFetcher(config)
         processor = DataProcessor()
-        
-        # Connect processor to fetcher
         data_fetcher.set_processor(processor)
-        
-        # Start data collection
         data_fetcher.start()
         
         # Keep the main thread alive
@@ -49,7 +39,7 @@ def main():
             time.sleep(1)
             
     except KeyboardInterrupt:
-        logging.info("Shutting down gracefully...")
+        logging.info("Shutting down...")
         data_fetcher.stop()
         sys.exit(0)
         
