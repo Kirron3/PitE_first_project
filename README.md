@@ -18,14 +18,12 @@ project/
 ├── config/
 │   └── config.yaml       # Configuration settings
 ├── logs/
-│   └── app.log          # Application logs
+│   └── app.log            # Log file
 ├── src/
-│   ├── __init__.py
 │   ├── main.py          # Main entry point
 │   ├── config.py        # Configuration management
 │   ├── data.py          # Data fetching
 │   └── processor.py     # Data processing
-└── README.md
 ```
 
 ## Requirements
@@ -37,26 +35,14 @@ project/
 
 ## Installation
 
-1. Clone the repository:
+1. Create the project structure:
 ```bash
-git clone [your-repository-url]
-cd crypto-price-monitor
+mkdir -p project/src project/config
 ```
 
-2. Create a virtual environment (optional but recommended):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
+2. Install dependencies:
 ```bash
 pip install requests pyyaml
-```
-
-4. Create required directories:
-```bash
-mkdir -p logs
 ```
 
 ## Usage
@@ -67,15 +53,11 @@ python src/main.py
 ```
 
 2. Stop the monitor:
-   - Press `CTRL+C` to shutdown the application
+   - Press `CTRL+C` to shutdown gracefully
 
 ## Configuration
 
-You can modify the `config/config.yaml` file to adjust:
-- Log file location
-- Data refresh rate
-- API endpoint URL
-
+The `config/config.yaml` file contains:
 ```yaml
 app:
   name: "Crypto Price Monitor"
@@ -96,23 +78,21 @@ Starting Crypto Price Monitor...
 
 ## Project Components
 
-- **DataFetcher**: Handles the retrieval of cryptocurrency prices from the CoinGecko API
-- **DataProcessor**: Processes the price data and calculates price changes
-- **ConfigManager**: Manages the application configuration
-- **Main**: Orchestrates the application components and handles shutdown
+- **main.py**: Entry point and application orchestration
+- **data.py**: Handles cryptocurrency price fetching
+- **processor.py**: Processes prices and calculates changes
+- **config.py**: Manages configuration loading
 
 ## Error Handling
 
-The application includes comprehensive error handling:
-- API connection errors
+The application includes error handling for:
+- API connection issues
 - Data processing errors
-- Shutdown on keyboard interrupt
+- Graceful shutdown on CTRL+C
 
 ## Logging
 
-Logs are written to both:
-- Console (stdout)
-- File (`logs/app.log`)
+Logs are written to both console and file, which are automatically created in the project directory.
 
 ## Contributing
 
