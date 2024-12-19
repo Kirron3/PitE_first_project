@@ -1,4 +1,3 @@
-
 # Crypto Price Monitor
 
 A real-time cryptocurrency price monitoring system built with Python. This project demonstrates real-time data fetching, multithreading, and logging capabilities while tracking Bitcoin and Ethereum prices.
@@ -14,23 +13,20 @@ A real-time cryptocurrency price monitoring system built with Python. This proje
 
 ## Project Structure
 
-project/\n
-│\n
-├── config/\n
-│   └── config.yaml       # Configuration settings\n
-│\n
-├── logs/\n
-│   └── app.log          # Application logs\n
-│\n
-├── src/\n
-│   ├── __init__.py\n
-│   ├── main.py          # Main entry point\n
-│   ├── config.py        # Configuration management\n
-│   ├── data.py          # Data fetching\n
-│   └── processor.py     # Data processing\n
-│\n
-└── README.md\n
-
+```
+project/
+├── config/
+│   └── config.yaml       # Configuration settings
+├── logs/
+│   └── app.log          # Application logs
+├── src/
+│   ├── __init__.py
+│   ├── main.py          # Main entry point
+│   ├── config.py        # Configuration management
+│   ├── data.py          # Data fetching
+│   └── processor.py     # Data processing
+└── README.md
+```
 
 ## Requirements
 
@@ -42,32 +38,33 @@ project/\n
 ## Installation
 
 1. Clone the repository:
+```bash
 git clone [your-repository-url]
 cd crypto-price-monitor
-
+```
 
 2. Create a virtual environment (optional but recommended):
-
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-
+```
 
 3. Install dependencies:
-
+```bash
 pip install requests pyyaml
-
+```
 
 4. Create required directories:
-
+```bash
 mkdir -p logs
-
+```
 
 ## Usage
 
 1. Start the monitor:
-
+```bash
 python src/main.py
-
+```
 
 2. Stop the monitor:
    - Press `CTRL+C` to shutdown the application
@@ -79,7 +76,7 @@ You can modify the `config/config.yaml` file to adjust:
 - Data refresh rate
 - API endpoint URL
 
-
+```yaml
 app:
   name: "Crypto Price Monitor"
   log_file: "logs/app.log"
@@ -87,15 +84,15 @@ app:
 data:
   refresh_rate: 5  # Refresh rate in seconds
   source_url: "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd"
-
+```
 
 ## Output Example
 
-
+```
 Starting Crypto Price Monitor...
 [14:23:45] BITCOIN: $42,123.45 (+0.35%)
 [14:23:45] ETHEREUM: $2,845.67 (-0.12%)
-
+```
 
 ## Project Components
 
