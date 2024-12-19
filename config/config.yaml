@@ -3,5 +3,5 @@ app:
   log_file: "logs/app.log"
   
 data:
-  refresh_rate: 5 # 5 seconds between request (max 10 per min)
+  refresh_rate: 5  # 5 seconds between requests
   source_url: "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd"

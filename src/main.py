@@ -2,18 +2,21 @@ import logging
 import time
 import signal
 import sys
+import os
 from config import load_config
 from data import DataFetcher
 from processor import DataProcessor
 
 def setup_logging(config):
+    log_dir = os.path.dirname(config['app']['log_file'])
+    os.makedirs(log_dir, exist_ok=True)
+    
     logging.basicConfig(
         filename=config['app']['log_file'],
         level=logging.INFO,
         format='%(message)s'
     )
     
-    # Also log to console
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(logging.INFO)
     logging.getLogger().addHandler(console_handler)
@@ -32,14 +35,14 @@ def main():
         data_fetcher = DataFetcher(config)
         processor = DataProcessor()
         data_fetcher.set_processor(processor)
+        
         data_fetcher.start()
         
-        # Keep the main thread alive
         while True:
             time.sleep(1)
             
     except KeyboardInterrupt:
-        logging.info("Shutting down...")
+        logging.info("Shutting down gracefully...")
         data_fetcher.stop()
         sys.exit(0)
         
